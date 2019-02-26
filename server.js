@@ -4,11 +4,13 @@ const schema = require('./schema');
 
 const app = express();
 
-app.use('/graphql', graphqlHTTP({
-  schema, //same as 'schema: schema'
-  graphiql: true
-}));
+app.use('/graphql', 
+  graphqlHTTP({
+    schema, //same as 'schema: schema'
+    graphiql: true
+  })
+);
 
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, console.log(`Server successfully started on ${PORT}`))
+app.listen(PORT, () => console.log(`Server successfully started on ${PORT}`))

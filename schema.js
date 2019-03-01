@@ -29,8 +29,7 @@ const RocketType = new GraphQLObjectType({
     fields: () => ({
         rocket_name: {type: GraphQLString},
         rocket_id:  {type: GraphQLString},
-        rocket_type: {type: GraphQLString},
-        rocket_resolve: {type: GraphQLString},
+        rocket_type: {type: GraphQLString}
     })
 });
 
@@ -41,9 +40,25 @@ const RootQuery = new GraphQLObjectType({
         launches: {
             type: new GraphQLList(LaunchType),
             resolve() {
-                return fetch('https://api.spacexdata.com/v3/launches/')
-                    .then(response => response.json())
-                    
+                return fetch(`https://api.spacexdata.com/v3/launches/`)
+                    .then(response => response.json());     
+            }
+        },
+        launch: {
+            type: LaunchType,
+            args: {
+                flight_number: {type: GraphQLInt}
+            },
+            resolve(parent, args) {
+                return fetch(`https://api.spacexdata.com/v3/launches/${args.flight_number}`)
+                    .then(response => response.json());
+            }
+        },
+        upcomingLaunch: {
+            type: new GraphQLList(LaunchType),
+            resolve(){
+                return fetch(`https://api.spacexdata.com/v3/launches/upcoming`)
+                    .then(response => response.json());
             }
         }
     }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 import LaunchItem from './LaunchItem.js';
+import LaunchLegend from './LaunchLegend';
 
 const QUERY_LAUNCHES = gql `
   query QueryLaunches {
@@ -17,7 +18,8 @@ const QUERY_LAUNCHES = gql `
 class Launches extends Component {
   render() {
     return (
-      <React.Fragment>
+      <div>
+        <LaunchLegend />
         <h1 className = "display-4 my-3">Launches</h1>
         <Query query = {QUERY_LAUNCHES}>
           {
@@ -37,7 +39,7 @@ class Launches extends Component {
             }
           }
         </Query>
-      </React.Fragment>
+      </div>
     )
   }
 }

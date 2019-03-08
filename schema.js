@@ -15,10 +15,9 @@ const LaunchType = new GraphQLObjectType({
     fields: () => ({
         flight_number: {type: GraphQLInt},
         mission_name: {type: GraphQLString},
-        launch_year: {type: GraphQLString},
         launch_date_local: {type: GraphQLString},
         launch_success: {type: GraphQLBoolean},
-        upcoming: {type: GraphQLBoolean},
+        details: {type: GraphQLString},
         rocket: {type: RocketType}
     })
 });
@@ -28,10 +27,28 @@ const RocketType = new GraphQLObjectType({
     name: 'Rocket',
     fields: () => ({
         rocket_name: {type: GraphQLString},
-        rocket_id:  {type: GraphQLString},
-        rocket_type: {type: GraphQLString}
+        second_stage: {type: SecondStage}
     })
 });
+
+//Second Stage -- contains nationality of rocket & name of manufacturer
+const SecondStage = new GraphQLObjectType({
+    name: 'SecondStage',
+    fields: () => ({
+        nationality: {
+            type: GraphQLString,
+            resolve: (second_stage) => { 
+                return second_stage.payloads[0].nationality;    
+            }
+        },
+        manufacturer: {
+            type: GraphQLString,
+            resolve: (second_stage) => {
+                return second_stage.payloads[0].manufacturer;
+            }
+        }
+    })
+})
 
 // Root Query – Resolvers for the data
 const RootQuery = new GraphQLObjectType({

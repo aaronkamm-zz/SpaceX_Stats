@@ -4,7 +4,7 @@ import Moment from 'react-moment';
 import {Link} from 'react-router-dom';
 
 export default function LaunchItem({launch: {flight_number, mission_name, launch_date_local, 
-launch_success, details, rocket: {rocket_name}}} ) {
+launch_success, details}}){
   
 return (
     <div className = "card card-body mb-3">
@@ -22,10 +22,7 @@ return (
                     "text-success": launch_success,
                     "text-danger": !launch_success
                 })}>{details}</span></p>}
-
-                <p>{rocket_name}</p>
-                
-                    
+  
             </div>
             <div className = "col-md-3">
                 <Link to = {`/rocket/${flight_number}`} className = "btn btn-info">Launch Info</Link>

@@ -18,7 +18,6 @@ class App extends Component {
       <BrowserRouter>
         <div className="container">
           <img className = "logo" src={logo} alt = "Space X" />
-          
             <Route exact path = "/" component = {Launches} />
             <Route exact path = "/rocket/:flight_number" component = {Rocket}/>
           

@@ -11,15 +11,7 @@ const QUERY_LAUNCHES = gql `
       mission_name
       launch_date_local
       launch_success
-      details
-      rocket{
-        rocket_id
-        rocket_name
-        rocket_type,
-        second_stage
-
-
-      }
+      details 
     }
   }
 `
@@ -39,7 +31,7 @@ class Launches extends Component {
               return <React.Fragment>
                 {
                   data.launches.map(launch => (
-                    <LaunchItem key = {launch.flight_number} launch = {launch}></LaunchItem>
+                    <LaunchItem key = {launch.flight_number} launch = {launch}/>
                   ))
                 }
               </React.Fragment>

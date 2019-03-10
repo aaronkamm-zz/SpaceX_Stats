@@ -25,7 +25,7 @@ return (
   
             </div>
             <div className = "col-md-3">
-                <Link to = {`/rocket/${flight_number}`} className = "btn btn-info">Launch Info</Link>
+                <Link to = {`/rocket/${flight_number}`} className = "btn btn-info">Rocket Info</Link>
             </div>
         </div>
     </div>

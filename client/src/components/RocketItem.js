@@ -1,8 +1,4 @@
 import React from 'react';
-import classNames from 'classnames';
-import Moment from 'react-moment';
-
-
 
 export default function RocketItem({rocketInfo: {mission_name, rocket: {rocket_name, 
     second_stage: {manufacturer, nationality}}}}) {

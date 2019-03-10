@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-import classNames from 'classnames';
 import gql from 'graphql-tag';
-import { Query, compose } from 'react-apollo';
+import { Query} from 'react-apollo';
 import {Link} from 'react-router-dom';
 import RocketItem from './RocketItem';
 const ROCKET_QUERY = gql`

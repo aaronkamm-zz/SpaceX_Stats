@@ -1,4 +1,4 @@
-Deployed App: frozen-fortress-14109.herokuapp.com/
+Deployed App: http://frozen-fortress-14109.herokuapp.com
 
 Application listing statistics from SpaceX API (https://github.com/r-spacex/SpaceX-API). 
 

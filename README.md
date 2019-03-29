@@ -1,5 +1,6 @@
+Deployed App: http://frozen-fortress-14109.herokuapp.com
 
-Application using statistics from SpaceX API (https://github.com/r-spacex/SpaceX-API). 
+Application listing statistics from SpaceX API (https://github.com/r-spacex/SpaceX-API). 
 
 Built using React, GraphQL, Apollo, and Express.
 
